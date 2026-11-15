@@ -452,6 +452,22 @@ footer.site .f-cols>div:first-child p{max-width:24rem;font-size:.875rem}
 footer.site .link{color:#fff}
 .f-bottom{max-width:76rem;margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.15);font-size:.8125rem;color:#bcd0e2}
 footer.site :focus-visible{outline-color:#fff}
+
+/* v9.1: telefon, napis na zdjęciu (hero jako pełne tło) */
+@media (max-width:63.99rem){
+  .hero{position:relative;min-height:clamp(34rem,78svh,42rem);justify-content:flex-end;color:#fff}
+  .hero .bg{position:absolute;inset:0;aspect-ratio:auto;background-position:80% 28%}
+  .hero .bg::after{background:linear-gradient(180deg,rgba(7,30,52,.62) 0%,rgba(7,30,52,.5) 18%,rgba(7,30,52,.3) 34%,rgba(7,30,52,.66) 46%,rgba(7,30,52,.88) 62%,rgba(7,30,52,.95) 100%)}
+  .hero-in{margin-top:auto;padding:0 var(--pad) 1.75rem}
+  .hero .label{color:#8ff0b5}
+  .hero .label i{background:#8ff0b5}
+  .hero h1{color:#fff;max-width:14ch;font-size:clamp(2.15rem,9.5vw,2.75rem)}
+  .hero h1 .hl{color:#9fd8f7}
+  .hero .lead{color:#dbe8f3;margin-top:1rem;font-size:1rem;max-width:26rem}
+  .hero .actions{margin-top:1.25rem}
+  .hero .btn.line{color:#fff;border-color:rgba(255,255,255,.7);background:transparent}
+  .hero .facts{position:relative;z-index:1}
+}
 /* jedyny ruch: wejście pierwszego ekranu */
 @keyframes fadein{from{opacity:0}}
 @keyframes rise{from{opacity:0;translate:0 .75rem}}
