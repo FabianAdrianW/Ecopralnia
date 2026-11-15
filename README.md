@@ -1,7 +1,7 @@
 # EcoPralnia: strona wizytówka
 
 Statyczna strona wizytówka pralni wodnej **EcoPralnia** z Wrocławia (ul. Tarasa Szewczenki 42, Psie Pole, tel. 603 708 002).
-Czysty HTML, CSS i JS, bez frameworków i bez kroku budowania. Wystarczy wgrać folder `site/` na dowolny hosting.
+Czysty HTML, CSS i JS, bez frameworków i bez kroku budowania. Strona leży w korzeniu repo, więc GitHub Pages (gałąź `main`, folder `/ (root)`) serwuje ją od razu. Na inny hosting wystarczy wgrać pliki z korzenia, bez `docs/`, `src/` i `README.md`.
 
 Wersja: **v9** (listopad 2026).
 
@@ -22,18 +22,17 @@ Na komputerze po lewej stronie jest przyklejona kolumna z logo, spisem treści, 
 ## Marka
 
 - Kolory z reklam firmy: niebieski (`#0b6cb0`, `#09558f`, `#08497c`) na duże powierzchnie i zieleń (`#0f7d38`) na przyciski, numery i ikony.
-- Font: Sofia Sans i Sofia Sans Condensed, wgrane lokalnie w `site/fonts/`.
+- Font: Sofia Sans i Sofia Sans Condensed, wgrane lokalnie w `fonts/`.
 - Strona ma jasny i ciemny motyw (`prefers-color-scheme`). Kontrast tekstu sprawdzony na co najmniej 4,5:1.
 - Zdjęcia wygenerowano w Gemini i pokazują tylko ubrania, tkaniny i wodę. Nie przedstawiają pralni, ludzi ani efektów jej pracy.
 
 ## Struktura
 
 ```
-site/                  gotowa strona do wgrania na hosting
-  index.html
-  img/                 zdjęcia w AVIF i WebP (tła CSS, image-set)
-  fonts/               woff2
-  favicon.svg, og.jpg, robots.txt, sitemap.xml
+index.html             gotowa strona (GitHub Pages serwuje korzeń)
+img/                   zdjęcia w AVIF i WebP (tła CSS, image-set)
+fonts/                 woff2
+favicon.svg, og.jpg, robots.txt, sitemap.xml, .nojekyll
 src/index.tpl.html     szablon źródłowy (fonty wstawiane w miejsce {{FONTFACES}})
 docs/
   podglad-jeden-plik.html   cała strona w jednym pliku (zdjęcia i fonty w base64), do wysłania klientowi
@@ -49,7 +48,6 @@ Oryginały zdjęć z Gemini (`media/`, ok. 56 MB) nie są w repozytorium.
 ## Podgląd lokalny
 
 ```
-cd site
 python -m http.server 8000
 ```
 
