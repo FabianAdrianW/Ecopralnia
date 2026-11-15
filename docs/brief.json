@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "slug": "ecopralnia",
+  "firma": {
+    "nazwa": "EcoPralnia",
+    "branza": "pralnia wodna (wet cleaning)",
+    "miasto": "Wrocław",
+    "adres": "ul. Tarasa Szewczenki 42, 51-352 Wrocław",
+    "telefon": "603 708 002",
+    "email": "kontakt@ecopralnia.wroclaw.pl",
+    "nip": "", "regon": "", "rok": "",
+    "godziny": "pn–pt 10:00–17:00, sob 10:00–14:00, nd zamknięte",
+    "strona": "http://ecopralnia.wroclaw.pl (nie działa)",
+    "google": "https://www.google.com/maps/place/EcoPralnia/@51.1376179,17.1334461,17z",
+    "social": ["https://www.facebook.com/EcoPralniaWroclaw"],
+    "obszar": "Wrocław; dywany z odbiorem i dowozem",
+    "domena": ""
+  },
+  "oferta": [
+    {"grupa": "Pranie wodne ubrań", "pozycje": "garnitury, marynarki, sukienki, koszule, płaszcze, kurtki puchowe, wełna, jedwab, kaszmir", "korzysc": "zamiast chemii; kolory nie blakną"},
+    {"grupa": "Suknie ślubne i wieczorowe", "pozycje": "suknie z koralikami i tiulem, porada przy przechowywaniu", "korzysc": "delikatne zdobienia wracają całe"},
+    {"grupa": "Dom", "pozycje": "pościel, kołdry, poduszki, koce, narzuty, firany, zasłony, obrusy, magiel", "korzysc": ""},
+    {"grupa": "Skóry i futra", "pozycje": "kożuchy, futra, skóry", "korzysc": ""},
+    {"grupa": "Dywany", "pozycje": "odbiór, pranie, odwiezienie", "korzysc": "nie wychodzisz z domu"},
+    {"grupa": "Poprawki krawieckie", "pozycje": "drobne poprawki", "korzysc": ""}
+  ],
+  "realizacje": [],
+  "opinie": [
+    {"tekst": "Suknie wymagały szczególnego traktowania ze względu na kamyczki, perełki i tiul; wróciły w idealnym stanie.", "autor": "Martyna J.", "zrodlo": "Google (parafraza, do potwierdzenia dosłownego cytatu)"},
+    {"tekst": "Przed powierzeniem sukni ślubnej rozmawiał z pięcioma pralniami; tylko ta podjęła się zadania i zrobiła je dobrze i na czas.", "autor": "Edward W.", "zrodlo": "Google (parafraza)"},
+    {"tekst": "Konsultacja przez telefon, znana cena z góry, odbiór pościeli po ok. 3 dniach.", "autor": "Piotr W.", "zrodlo": "Google (parafraza)"},
+    {"tekst": "Uratowała w ostatniej chwili garnitur męża.", "autor": "Magda", "zrodlo": "Google (parafraza)"},
+    {"tekst": "Kurtka oddana w słabym stanie wygląda jak nowa.", "autor": "Wolf", "zrodlo": "Google (parafraza)"}
+  ],
+  "wywiad": {},
+  "ziarna": [
+    {"tekst": "Pralnia działa w domu jednorodzinnym przy Szewczenki 42; klienci piszą, że wejście jest nieoznakowane", "zrodlo": "opinie Google: Piotr W., Justyna H., Mariusz K."},
+    {"tekst": "Pranie wodne (wet cleaning) zamiast chemii, maszyny Girbau, atestowane środki", "zrodlo": "archiwum ecopralnia.wroclaw.pl 2020"},
+    {"tekst": "Suknie ślubne z kamyczkami, perełkami i tiulem; porada jak je przechowywać", "zrodlo": "opinie Google: Martyna J., Edward W."},
+    {"tekst": "Telefon przed oddaniem: wiesz, ile zapłacisz", "zrodlo": "opinia Google: Piotr W."},
+    {"tekst": "Tryb super ekspres: odbiór tego samego dnia, ratunek w ostatniej chwili", "zrodlo": "archiwum strony; opinia Google: Magda"},
+    {"tekst": "Właścicielka pani Iza", "zrodlo": "opinia Google: Edward W. (do potwierdzenia)"},
+    {"tekst": "Dywany: odbiór i odwiezienie pod adres", "zrodlo": "archiwum strony"}
+  ],
+  "zdjecia": {},
+  "barter": {},
+  "notatki": "Brak wizyty i zdjęć. Strona ecopralnia.wroclaw.pl nie działa. Archiwum podaje też adres Galeria Kiełczowska, ul. Kiełczowska 70 (2019) i inne godziny — wcześniejsza lokalizacja, do potwierdzenia."
+}

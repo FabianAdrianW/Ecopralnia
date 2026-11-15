@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pralnia wodna Wrocław, Psie Pole | EcoPralnia, Szewczenki 42</title>
+<meta name="description" content="EcoPralnia we Wrocławiu: pranie wodne zamiast chemii. Garnitury, suknie ślubne, kurtki puchowe, pościel, dywany. Ul. Tarasa Szewczenki 42, tel. 603 708 002.">
+<link rel="canonical" href="https://ecopralnia.wroclaw.pl/"><!-- TODO: docelowa domena -->
+<meta name="theme-color" content="#fcfcfb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1319" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="EcoPralnia: pranie wodne we Wrocławiu">
+<meta property="og:description" content="Pierzemy w wodzie rzeczy, które zwykle trafiają do chemii. Ul. Tarasa Szewczenki 42, tel. 603 708 002.">
+<meta property="og:image" content="https://ecopralnia.wroclaw.pl/og.jpg"><!-- TODO: docelowa domena -->
+<meta property="og:url" content="https://ecopralnia.wroclaw.pl/"><!-- TODO: docelowa domena -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/sofia-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/sofia-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DryCleaningOrLaundry",
+  "name": "EcoPralnia",
+  "description": "Pralnia wodna (wet cleaning) we Wrocławiu.",
+  "telephone": "+48603708002",
+  "address": {"@type": "PostalAddress", "streetAddress": "ul. Tarasa Szewczenki 42", "postalCode": "51-352", "addressLocality": "Wrocław", "addressCountry": "PL"},
+  "geo": {"@type": "GeoCoordinates", "latitude": 51.1376179, "longitude": 17.1334461},
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "17:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00"}
+  ],
+  "sameAs": ["https://www.facebook.com/EcoPralniaWroclaw"]
+}
+</script>
+<script>document.documentElement.classList.add("js")</script>
+<style>
+{{FONTFACES}}
+/* EcoPralnia v6: minimalizm prowadzony zdjęciami. Przyklejona kolumna z informacjami, treść w asymetrycznych blokach na jednym tle.
+   Bez dekoracji, bez animacji przy scrollu; ruch tylko przy wejściu pierwszego ekranu i przy najechaniu. */
+:root{
+  --bg:#ffffff; --surface:#f4f8fb; --stone:#edf3f8; --stone-2:#dce7f0; --navy:#0a3a63; --on-navy:#f2f7fb; --on-navy-muted:#bcd0e2; --ink:#0d2236; --muted:#4d5f70; --line:#e0e8ef; --line-strong:#c2cfdb; --red:#cf3329;
+  --accent:#0b6cb0; --accent-ink:#ffffff; --green:#11873d; --brand-blue:#0b84cc; --brand-green:#11873d;
+  --f:"Sofia Sans",ui-sans-serif,system-ui,sans-serif; --f-c:"Sofia Sans Condensed","Sofia Sans",ui-sans-serif,sans-serif;
+  --side:19rem; --pad:clamp(1.25rem,4vw,4.5rem); --r:6px; --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0e1319; --surface:#151c24; --ink:#e7ecf1; --muted:#9ba7b3; --line:#222b35; --line-strong:#33404c;
+    --accent:#5cb0ee; --accent-ink:#06121d; --stone:#121c27; --stone-2:#1a2733; --navy:#082a47; --red:#ef6a5f; --green:#4cc27e; --brand-blue:#4cc0f5; --brand-green:#5fd48a}
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:5rem}
+@media (min-width:64rem){html{scroll-padding-top:2rem}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--f);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+@media (min-width:64rem){body{font-size:1rem}}
+img,svg{display:block;max-width:100%}
+h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:1rem;top:-4rem;z-index:50;background:var(--ink);color:var(--bg);padding:.75rem 1rem;border-radius:var(--r);text-decoration:none;font-weight:600}
+.skip:focus{top:1rem}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ico{width:1.1em;height:1.1em;flex:none}
+
+h1,h2,h3{font-family:var(--f-c);font-weight:800;letter-spacing:-.005em;color:var(--ink);text-wrap:balance}
+h3{font-family:var(--f);font-weight:600;letter-spacing:-.01em}
+h1{font-size:clamp(2.6rem,1.5rem + 3.6vw,4.6rem);line-height:.98;letter-spacing:-.01em}
+h2{font-size:clamp(1.9rem,1.3rem + 1.6vw,2.9rem);line-height:1;text-transform:uppercase;letter-spacing:.005em}
+h3{font-size:1.125rem;line-height:1.3;letter-spacing:-.01em}
+p{text-wrap:pretty}
+.muted{color:var(--muted)}
+.label{display:flex;align-items:baseline;gap:.75rem;font-size:.8125rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.label b{font:600 .8125rem/1 var(--f);color:var(--accent);letter-spacing:.02em}
+
+/* przyciski: jeden styl pełny, jeden obrysowy */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:3rem;padding:0 1.25rem;border-radius:var(--r);border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);font:600 1rem/1 var(--f);text-decoration:none;cursor:pointer;transition:translate .2s var(--ease),background-color .2s,border-color .2s,color .2s}
+.btn.line{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+@media (hover:hover){.btn:hover{translate:0 -1px}.btn.line:hover{border-color:var(--ink)}}
+.btn:active{translate:0 1px}
+.link{color:var(--ink);text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding-bottom:2px;transition:background-size .3s var(--ease)}
+@media (hover:hover){.link:hover{background-size:0 1px;background-position:100% 100%}}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem}
+
+/* ===== układ: kolumna boczna + treść ===== */
+.shell{display:block}
+.side{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.side-top{display:flex;align-items:center;gap:.75rem;height:4rem;padding-inline:var(--pad)}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-right:auto;min-height:44px}
+.brand svg{width:1.75rem;height:1.75rem;color:var(--ink)}
+.brand-name{font:800 1.5rem/1 var(--f-c);letter-spacing:0}
+.brand-name b{font-weight:800;color:var(--brand-green)}
+.brand-name span{color:var(--brand-blue)}
+.side-call{min-height:2.75rem;padding:0 1rem}
+.menu-btn{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border:1px solid var(--line-strong);border-radius:var(--r);background:transparent;color:var(--ink);cursor:pointer}
+.menu-btn svg{width:1.25rem;height:1.25rem}
+.side-tag{display:none}
+.side-nav{display:none}
+.side-nav.open{display:block;position:fixed;inset:4rem 0 0 0;background:var(--bg);padding:1rem var(--pad) 2rem;overflow:auto;border-top:1px solid var(--line)}
+.side-nav a{display:flex;align-items:baseline;gap:1rem;min-height:3.25rem;padding:.9rem 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:1.25rem;font-weight:600}
+.side-nav a span{font-size:.8125rem;color:var(--muted);font-weight:600;width:1.6rem}
+.side-foot{display:none}
+
+@media (min-width:64rem){
+  .shell{display:grid;grid-template-columns:var(--side) minmax(0,1fr)}
+  .side{height:100svh;height:100dvh;border-bottom:0;border-right:1px solid var(--stone-2);background:var(--stone);backdrop-filter:none;-webkit-backdrop-filter:none;display:flex;flex-direction:column;padding:2.25rem 2rem 2rem}
+  .side-top{height:auto;padding:0}
+  .side-call,.menu-btn{display:none}
+  .side-tag{display:block;margin-top:.9rem;font-size:.875rem;color:var(--muted);line-height:1.45}
+  .side-nav,.side-nav.open{display:block;position:static;padding:0;margin-top:3rem;background:none;border:0;overflow:visible}
+  .side-nav a{position:relative;min-height:2.5rem;padding:.55rem 0;border:0;font-size:.975rem;color:var(--muted);transition:color .2s}
+  .side-nav a::before{content:"";position:absolute;left:-2rem;top:50%;width:0;height:1px;background:var(--ink);transition:width .3s var(--ease)}
+  .side-nav a[aria-current="true"]{color:var(--ink)}
+  .side-nav a[aria-current="true"]::before{width:1.25rem}
+  @media (hover:hover){.side-nav a:hover{color:var(--ink)}}
+  .side-foot{display:block;margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--line)}
+  .side-phone{display:block;font:600 1.5rem/1.1 var(--f);letter-spacing:-.01em;text-decoration:none;margin-bottom:1rem}
+  .side-foot dl{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1rem;font-size:.875rem}
+  .side-foot dt{color:var(--muted)}
+  .side-foot .btn{width:100%;margin-top:1.25rem}
+}
+@media (min-width:64rem) and (max-height:40rem){.side-nav{margin-top:1.5rem}.side-nav a{min-height:2rem;padding:.3rem 0}}
+
+/* ===== v6: treść prowadzona zdjęciami. Każde zdjęcie to tło CSS z AVIF i WebP (zmienne --a i --w);
+   brak pliku = spokojna plama koloru, bez ikony błędu. ===== */
+main{min-width:0}
+.ph{position:relative;overflow:hidden;border-radius:var(--r);background-color:var(--stone-2);background-image:var(--w);background-image:image-set(var(--a) type("image/avif"),var(--w) type("image/webp"));background-size:cover;background-position:center;background-repeat:no-repeat}
+.blk{position:relative;isolation:isolate;padding:clamp(3.5rem,7vw,6rem) var(--pad)}
+.blk>.in{max-width:76rem}
+.d-grid,.r-grid,.f-grid,.c-grid,.m-top{grid-template-columns:minmax(0,1fr)}
+.blk .label{margin-bottom:1.25rem}
+.blk .label b::after{content:"";display:inline-block;vertical-align:middle;width:2.5rem;height:1px;margin-left:.75rem;background:var(--line-strong)}
+.blk h2+p,.lede{margin-top:.75rem;color:var(--muted);max-width:30rem}
+/* tło bloku ze zdjęcia */
+.bg{position:absolute;inset:0;z-index:-1;border-radius:0;background-color:transparent}
+.bg::after{content:"";position:absolute;inset:0}
+
+/* ---------- hero: zdjęcie w tle całej kolumny, tekst po lewej na jasnym przejściu ---------- */
+.hero{padding:0;min-height:min(100svh,56rem);display:flex;flex-direction:column}
+.hero .bg{position:relative;inset:auto;z-index:0;aspect-ratio:16/10;background-position:92% center}
+.hero-in{position:relative;z-index:1;padding:2rem var(--pad) 2.5rem}
+.hero .label i{display:inline-block;width:.5rem;height:.5rem;border-radius:50%;background:var(--green)}
+.hero h1{max-width:13ch}
+.hero .lead{margin-top:1.25rem;max-width:30rem;font-size:1.125rem;color:var(--muted)}
+.hero .actions{margin-top:1.75rem}
+@media (min-width:64rem){
+  .hero{position:relative;justify-content:flex-end}
+  .hero .bg{position:absolute;inset:0;aspect-ratio:auto;background-position:right center}
+  .hero .bg::after{background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 88%,transparent) 30%,color-mix(in srgb,var(--bg) 0%,transparent) 62%)}
+  .hero-in{padding:0 var(--pad) clamp(3rem,7vh,5rem);margin-top:auto}
+}
+.facts{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts>div{background:var(--stone);padding:1rem var(--pad) 1rem 1rem}
+.facts>div:first-child{padding-left:var(--pad)}
+.facts dt{font-size:.75rem;color:var(--muted);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.facts dd{margin:.25rem 0 0;font-weight:600;font-size:.9375rem;line-height:1.35}
+@media (max-width:40rem){.facts{grid-template-columns:1fr}.facts>div{padding-left:var(--pad)}}
+
+/* ---------- metoda: tło z wody, trzy karty ze zdjęciem i jednym zdaniem ---------- */
+.method .bg::after{background:linear-gradient(180deg,color-mix(in srgb,var(--bg) 82%,transparent),color-mix(in srgb,var(--bg) 94%,transparent))}
+.m-top{display:grid;gap:1.25rem;align-items:end}
+.wtag{display:flex;align-items:center;gap:.9rem;margin-top:1rem;font-weight:600}
+.wtag svg{width:3rem;height:3rem;flex:none}
+@media (min-width:64rem){.m-top{grid-template-columns:1.2fr 1fr}.wtag{justify-content:flex-end;margin-top:0}}
+.cards3{display:grid;gap:1rem;margin-top:2.25rem}
+.card{display:block}
+.card .ph{aspect-ratio:4/5}
+.card h3{margin-top:.9rem}
+.card p{margin-top:.2rem;color:var(--muted);font-size:.9375rem}
+@media (max-width:39.99rem){.card{display:grid;grid-template-columns:6.5rem minmax(0,1fr);column-gap:1rem;align-items:center}.card .ph{aspect-ratio:1;grid-row:span 2}.card h3{margin-top:0;align-self:end}.card p{align-self:start}}
+@media (min-width:40rem){.cards3{grid-template-columns:repeat(3,minmax(0,1fr))}.cards3 .card:nth-child(2){margin-top:2.5rem}.cards3 .card:nth-child(3){margin-top:1.25rem}}
+.m-note{margin-top:1.75rem;font-size:.875rem;color:var(--muted)}
+
+/* ---------- co przyjmujemy: kafle zdjęć z podpisem na zdjęciu ---------- */
+.serv{background:var(--stone)}
+.serv .bg{opacity:.22;mix-blend-mode:multiply}
+@media (prefers-color-scheme:dark){.serv .bg{opacity:.06;mix-blend-mode:normal}}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-top:2rem}
+.tile{position:relative;display:flex;align-items:flex-end;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;color:#fff;text-decoration:none}
+.tile .ph{position:absolute;inset:0;border-radius:0;transition:scale .6s var(--ease)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(8,16,26,.78))}
+.tile span{position:relative;z-index:1;padding:1rem;font:800 1.2rem/1.1 var(--f-c);text-transform:uppercase;letter-spacing:.01em}
+.tile span small{font-family:var(--f);text-transform:none;letter-spacing:0}
+.tile span small{display:block;font-weight:400;font-size:.8125rem;opacity:.85;margin-top:.15rem}
+@media (hover:hover){.tile:hover .ph{scale:1.03}}
+.badge{position:absolute;top:.75rem;left:.75rem;z-index:2;background:var(--red);color:#fff;font:600 .75rem/1 var(--f);letter-spacing:.04em;text-transform:uppercase;padding:.45rem .6rem;border-radius:4px}
+.modes-head{margin-top:clamp(2.5rem,5vw,4rem);font:800 1.1rem/1 var(--f-c);text-transform:uppercase;letter-spacing:.04em;color:var(--accent)}
+.modes-head+.modes{margin-top:1rem}
+.tile.ask{background:var(--accent);color:var(--on-navy);align-items:stretch}
+.tile.ask::after{display:none}
+.tile.ask span{display:flex;flex-direction:column;justify-content:space-between;width:100%;padding:1.25rem}
+.tile.ask b{font-size:1.25rem;font-weight:600;line-height:1.2}
+.tile.ask em{font-style:normal;display:inline-flex;align-items:center;gap:.5rem;font-size:.9375rem}
+@media (min-width:48rem){.tiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}.tiles>:nth-child(4n+2){margin-top:2rem}.tiles>:nth-child(4n+4){margin-top:1rem}.tile.ask{grid-column:span 3;aspect-ratio:auto;min-height:9rem;margin-top:0}.tile.ask span{flex-direction:row;align-items:flex-end;padding:1.75rem}.tile.ask b{font-size:1.6rem;max-width:16ch}}
+
+/* tryby: trzy zdjęcia z czasem na zdjęciu */
+.modes{display:grid;gap:1rem;margin-top:clamp(2.5rem,5vw,4rem)}
+.mode{position:relative;display:flex;align-items:flex-end;aspect-ratio:3/2;border-radius:var(--r);overflow:hidden;color:#fff}
+.mode .ph{position:absolute;inset:0;border-radius:0}
+.mode::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(8,16,26,.8))}
+.mode div{position:relative;z-index:1;padding:1rem 1.1rem}
+.mode b{display:block;font:800 clamp(1.7rem,1.2rem + 1.3vw,2.4rem)/1 var(--f-c);text-transform:uppercase}
+.mode span{display:block;margin-top:.2rem;font-size:.875rem;opacity:.9}
+@media (min-width:48rem){.modes{grid-template-columns:1.2fr 1fr 1fr}}
+
+/* ---------- suknie: tiul w tle, kolaż dwóch zdjęć i cytat ---------- */
+.dress .bg::after{background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 92%,transparent) 45%,color-mix(in srgb,var(--bg) 55%,transparent) 100%)}
+.d-grid{display:grid;gap:2.5rem}
+@media (min-width:64rem){.d-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:3rem}}
+.ticks{margin-top:1.5rem;display:grid;gap:.6rem}
+.ticks li{display:flex;gap:.65rem;align-items:center;font-weight:500}
+.ticks svg{width:1.15rem;height:1.15rem;color:var(--green);flex:none}
+.d-text .actions{margin-top:1.75rem}
+.collage{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:auto auto;align-items:start}
+.collage .c1{grid-column:2 / 7;grid-row:1;aspect-ratio:4/5}
+.collage .c2{grid-column:1 / 4;grid-row:1;align-self:end;aspect-ratio:1;margin-bottom:-2.5rem;box-shadow:0 0 0 6px var(--bg);z-index:1}
+.collage blockquote{grid-column:3 / 7;grid-row:2;margin-top:1rem;background:var(--bg);padding:1.25rem 1.25rem 1.25rem 1.5rem;border-left:2px solid var(--ink);border-radius:0 var(--r) var(--r) 0;box-shadow:0 24px 50px -36px color-mix(in srgb,var(--ink) 50%,transparent);z-index:1}
+@media (min-width:64rem){.collage blockquote{margin-top:-3.5rem}}
+.collage blockquote p{font-size:1.125rem;line-height:1.35;font-weight:500}
+.collage blockquote footer{margin-top:.5rem;font-size:.8125rem;color:var(--muted)}
+
+/* ---------- opinie: len w tle, duża ocena, krótkie cytaty ---------- */
+.rev{background:var(--stone)}
+.rev .bg{opacity:.2;mix-blend-mode:multiply}
+@media (prefers-color-scheme:dark){.rev .bg{opacity:.06;mix-blend-mode:normal}}
+.r-grid{display:grid;gap:2rem}
+@media (min-width:64rem){.r-grid{grid-template-columns:14rem minmax(0,1fr);gap:3rem;align-items:start}}
+.score b{display:block;font:600 clamp(4rem,3rem + 4vw,6rem)/.9 var(--f);letter-spacing:-.04em}
+.stars{display:flex;gap:.2rem;margin-top:.8rem}
+.stars span{position:relative;display:block;width:1.1rem;height:1.1rem}
+.stars svg{position:absolute;inset:0;width:100%;height:100%}
+.stars .bg-s{color:var(--line-strong)}
+.stars .half{clip-path:inset(0 50% 0 0)}
+.score p{margin-top:.6rem;color:var(--muted);font-size:.9375rem}
+.score a{display:inline-block;margin-top:.9rem}
+.quotes{display:grid;gap:1rem}
+.quotes blockquote{background:var(--bg);border-radius:var(--r);padding:1.25rem 1.25rem 1.1rem}
+.quotes p{font-size:1.0625rem;line-height:1.4}
+.quotes footer{margin-top:.6rem;font-size:.8125rem;color:var(--muted)}
+@media (min-width:48rem){.quotes{grid-template-columns:repeat(3,minmax(0,1fr))}.quotes blockquote:nth-child(2){margin-top:2rem}}
+
+/* ---------- dojazd: dwa prawdziwe zdjęcia od firmy + krótkie kroki ---------- */
+.f-grid{display:grid;gap:2rem}
+@media (min-width:64rem){.f-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:3rem;align-items:start}}
+.steps{margin-top:1.5rem;counter-reset:s;display:grid;gap:.9rem}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2rem 1fr;align-items:baseline}
+.steps li::before{content:counter(s,decimal-leading-zero);font:600 .8125rem/1 var(--f);color:var(--muted)}
+.steps li span{font-weight:500}
+.f-text .actions{margin-top:1.75rem}
+.photos2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:.75rem;align-items:start}
+.slot{display:grid;place-items:center;aspect-ratio:4/5;border:1px dashed var(--line-strong);border-radius:var(--r);font-size:.8125rem;color:var(--muted);text-align:center;padding:1rem;background:var(--stone)}
+.photos2 .slot:nth-child(2){margin-top:3rem;aspect-ratio:1}
+
+/* ---------- kontakt: granat z wełną w tle ---------- */
+.contact{background:linear-gradient(135deg,var(--navy),#0b5d99);color:var(--on-navy)}
+
+.contact .bg{mix-blend-mode:luminosity;opacity:.35}
+.contact .bg::after{background:linear-gradient(90deg,var(--navy) 25%,color-mix(in srgb,var(--navy) 40%,transparent))}
+.c-grid{display:grid;gap:2.5rem}
+@media (min-width:64rem){.c-grid{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:4rem;align-items:end}}
+.contact h2,.contact h3,.contact .label b{color:var(--on-navy)}
+.contact .label,.contact .muted{color:var(--on-navy-muted)}
+.contact .label b::after{background:color-mix(in srgb,var(--on-navy) 35%,transparent)}
+.big-phone{display:inline-block;margin-top:1rem;font:600 clamp(2.4rem,1.6rem + 3vw,4.25rem)/1 var(--f);letter-spacing:-.03em;color:var(--on-navy);text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;padding-bottom:.25rem;transition:background-size .35s var(--ease)}
+@media (hover:hover){.big-phone:hover{background-size:100% 2px}}
+.c-main .muted{margin-top:.75rem}
+.c-main .actions{margin-top:1.5rem}
+.contact .btn{background:var(--on-navy);color:var(--navy);border-color:var(--on-navy)}
+.contact .btn.line{background:transparent;color:var(--on-navy);border-color:color-mix(in srgb,var(--on-navy) 45%,transparent)}
+.addr{margin-top:2rem;font-style:normal;line-height:1.7;color:var(--on-navy)}
+.addr .mail{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.contact .link{color:var(--on-navy)}
+.copy-btn{min-height:2.75rem;padding:0 .9rem;border:1px solid color-mix(in srgb,var(--on-navy) 45%,transparent);border-radius:var(--r);background:transparent;color:var(--on-navy);font:600 .875rem/1 var(--f);cursor:pointer}
+.c-hours{padding-top:1.25rem;border-top:1px solid var(--on-navy)}
+.c-hours h3{margin-bottom:1rem}
+.open-now{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;font-weight:600;font-size:.9375rem}
+.open-now[hidden]{display:none}
+.open-now .dot{width:.55rem;height:.55rem;border-radius:50%;background:#5fd48a}
+.open-now.closed .dot{background:var(--on-navy-muted)}
+.hours{width:100%;border-collapse:collapse;font-size:.9375rem}
+.hours th,.hours td{padding:.65rem 0;border-bottom:1px solid color-mix(in srgb,var(--on-navy) 18%,transparent);text-align:left;font-weight:400}
+.hours th{color:var(--on-navy-muted)}
+.hours td{text-align:right;font-variant-numeric:tabular-nums;color:var(--on-navy)}
+.hours tr.today th,.hours tr.today td{font-weight:600;color:var(--on-navy)}
+.contact :focus-visible{outline-color:var(--on-navy)}
+
+footer.site{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between;padding:1.75rem var(--pad) 6rem;font-size:.8125rem;color:var(--muted)}
+@media (min-width:64rem){footer.site{padding-bottom:1.75rem}}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:15;display:grid;grid-template-columns:1fr 1fr;gap:.5rem;padding:.6rem var(--pad) calc(.6rem + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s var(--ease)}
+.bar.show{transform:none}
+.bar .btn{min-height:2.875rem}
+@media (min-width:64rem){.bar{display:none}}
+
+
+/* ===== v8: bliżej reklam marki: niebieski jako powierzchnie, zieleń jako drugi kolor (CTA, znaczniki, kółka z ikonami) ===== */
+:root{--blue:#0b6cb0;--blue-2:#09558f;--blue-deep:#08497c;--green-cta:#0f7d38;--sky:#e8f2fa;--green:#0f7d38}
+@media (prefers-color-scheme:dark){:root{--blue:#0b5f9c;--blue-2:#083f6b;--blue-deep:#062f52;--green-cta:#13703a;--sky:#10202f;--green:#5fd48a}}
+h2{color:var(--blue)}
+@media (prefers-color-scheme:dark){h2{color:#7cc0f2}}
+h1 .hl{color:var(--blue)}
+@media (prefers-color-scheme:dark){h1 .hl{color:#7cc0f2}}
+.label{color:var(--green);width:fit-content}
+.label b{color:var(--green)}
+.label b::after{background:color-mix(in srgb,var(--green) 45%,transparent)}
+.btn:not(.line){background:var(--green-cta);border-color:var(--green-cta);color:#fff}
+.btn.line{border-color:var(--blue);color:var(--blue)}
+@media (prefers-color-scheme:dark){.btn.line{border-color:#7cc0f2;color:#cfe6f8}}
+/* lewa kolumna w błękicie, telefon zielony jak na ich witrynach */
+@media (min-width:64rem){.side{background:var(--sky);border-right-color:color-mix(in srgb,var(--blue) 18%,transparent)}}
+.side-phone{color:var(--green)}
+.side-nav a span{color:var(--green)}
+.side-nav a[aria-current="true"]{color:var(--blue)}
+.side-nav a::before{background:var(--green)}
+/* pasek faktów jako niebieska belka */
+.facts{background:color-mix(in srgb,#fff 25%,transparent);border:0}
+.facts>div{background:var(--blue-2);color:#fff}
+.facts dt{color:#e1edf8}
+/* metoda: pełny niebieski z wodą */
+.method{background:linear-gradient(160deg,var(--blue-2),var(--blue-deep));color:#fff}
+.method .bg{mix-blend-mode:screen;opacity:.1}
+.method .bg::after{background:none}
+.method h2,.method h3,.method .wtag{color:#fff}
+.method .label,.method .label b{color:#bfe8cd}
+.method .label b::after{background:rgba(255,255,255,.4)}
+.method .m-top p,.method .card p,.method .m-note{color:#e6f0f9}
+.pill{display:grid;place-items:center;width:3rem;height:3rem;border-radius:50%;background:var(--green-cta);color:#fff;margin-top:-1.5rem;margin-left:1rem;position:relative;z-index:1;box-shadow:0 0 0 4px var(--blue)}
+.pill svg{width:1.4rem;height:1.4rem}
+.card h3{margin-top:.6rem}
+@media (max-width:39.99rem){.pill{display:none}}
+/* usługi i opinie na błękicie zamiast szarości */
+.serv,.rev{background:var(--sky)}
+.serv .bg,.rev .bg{opacity:.12}
+.tile.ask{background:var(--green-cta)}
+.modes-head{color:var(--green)}
+.ticks svg{color:var(--green)}
+.quotes blockquote{border-top:3px solid var(--green)}
+.score b{color:var(--blue)}
+/* kontakt: pełny niebieski marki */
+.contact{background:linear-gradient(135deg,var(--blue-deep),var(--blue-2))}
+.contact .bg{mix-blend-mode:screen;opacity:.15}
+.contact .muted,.contact .hours th{color:#d6e5f2}
+.contact .bg::after{background:none}
+.contact .btn:not(.line){background:var(--green-cta);border-color:var(--green-cta);color:#fff}
+.contact .label,.contact .label b{color:#bfe8cd}
+
+
+/* v8.1: kafel "zapytaj" ze zdjęciem, czytelne tryby */
+.tile.ask .ph{background-position:center 40%}
+.tile.ask::after{display:block;background:linear-gradient(90deg,var(--green-cta) 0,var(--green-cta) 30%,color-mix(in srgb,var(--green-cta) 70%,transparent) 55%,color-mix(in srgb,var(--green-cta) 15%,transparent) 100%)}
+.tile.ask span{position:relative;z-index:2}
+.tile.ask em{background:#fff;color:var(--green-cta);padding:.7rem 1.1rem;border-radius:999px;font-weight:700;width:fit-content}
+@media (max-width:47.99rem){.tile.ask::after{background:linear-gradient(180deg,color-mix(in srgb,var(--green-cta) 40%,transparent),var(--green-cta) 70%)}}
+@media (min-width:48rem){.tile.ask{min-height:0;height:13rem;align-self:end}.tile.ask span{justify-content:flex-start;gap:2rem;align-items:center}}
+.mode::after{background:linear-gradient(180deg,rgba(6,28,48,.05) 0,rgba(6,28,48,.35) 40%,rgba(6,28,48,.88) 100%)}
+.mode .ph{z-index:0;padding:0}
+.mode::after{z-index:1}
+.mode>div:not(.ph){z-index:2;padding:1.1rem 1.25rem 1.2rem}
+.mode b{text-shadow:0 2px 14px rgba(0,0,0,.45)}
+.mode span{opacity:1;font-weight:600;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.mode>div:not(.ph)::before{content:"";display:block;width:2rem;height:.25rem;border-radius:2px;background:#5fd48a;margin-bottom:.6rem}
+
+/* ===== v9: menu premium, spójność, kroki, opinie, mapa, stopka ===== */
+/* 1–3: menu z wyraźnym miejscem i paskiem postępu */
+@media (min-width:64rem){
+  .side-nav{position:relative;--p:0}
+  .side-nav::before,.side-nav::after{content:"";position:absolute;left:.8rem;top:1.25rem;width:2px;margin-left:-1px;border-radius:2px}
+  .side-nav::before{bottom:1.25rem;background:color-mix(in srgb,var(--blue) 16%,transparent)}
+  .side-nav::after{height:calc((100% - 2.5rem) * var(--p));background:var(--green);transition:height .25s linear}
+  .side-nav a{z-index:1;align-items:center;gap:.9rem;margin-left:-.5rem;padding:.5rem .75rem .5rem .5rem;border-radius:999px;transition:color .2s,background-color .25s,box-shadow .25s,translate .25s var(--ease)}
+  .side-nav a::before{display:none}
+  .side-nav a span{display:grid;place-items:center;flex:none;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--sky);border:1.5px solid color-mix(in srgb,var(--green) 35%,transparent);font-size:.6875rem;font-weight:700;letter-spacing:0;color:var(--green);transition:background-color .25s,color .25s,border-color .25s,scale .25s var(--ease)}
+  .side-nav a.done span{border-color:var(--green)}
+  .side-nav a[aria-current="true"]{color:var(--blue);font-weight:700;background:var(--bg);box-shadow:0 8px 22px -12px color-mix(in srgb,var(--blue) 45%,transparent)}
+  .side-nav a[aria-current="true"] span{background:var(--green);border-color:var(--green);color:#fff;scale:1.12}
+  @media (hover:hover){.side-nav a:hover{translate:3px 0}}
+}
+@media (min-width:64rem) and (prefers-color-scheme:dark){.side-nav a[aria-current="true"]{color:#cfe6f8;background:var(--stone-2)}}
+/* 4: nowe hero z wodą, biel bez ciepłego pokoju */
+.hero .bg{background-color:#fefefc}
+@media (max-width:63.99rem){.hero .bg{background-position:88% center}}
+@media (min-width:64rem){.hero .bg{background-position:right center}.hero .bg::after{background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 70%,transparent) 35%,transparent 55%)}}
+@media (prefers-color-scheme:dark){.hero .bg{filter:brightness(.82)}}
+/* 5: suknie w chłodnej tonacji */
+.dress .bg{filter:saturate(.35) brightness(1.04)}
+.collage .c1,.collage .c2{filter:saturate(.7)}
+/* 6: równe rzędy kart i opinii (przesunięcie zostaje tylko w kaflach usług) */
+@media (min-width:40rem){.cards3 .card:nth-child(n){margin-top:0}}
+/* 9: jedno zaokrąglenie */
+.badge{border-radius:var(--r)}
+.tile.ask em{border-radius:var(--r)}
+/* metoda: woda w tle mocniej widoczna */
+.method .bg{opacity:.2}
+/* 10: jak to działa */
+.how{background:#fff;padding-block:clamp(3.5rem,6vw,5.5rem)}
+.how .bg{background-position:right bottom}
+.how .bg::after{background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0) 60%)}
+.how h2{margin-bottom:2rem}
+.how-steps{display:grid;gap:1.25rem;counter-reset:h}
+.how-steps li{align-content:start}
+.how-steps li{counter-increment:h;position:relative;display:grid;grid-template-columns:3.5rem minmax(0,1fr);column-gap:1rem;align-items:center;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:var(--r);padding:1.1rem 1.25rem;box-shadow:0 18px 40px -30px color-mix(in srgb,var(--blue) 60%,transparent)}
+.how-steps .n{grid-row:span 2;display:grid;place-items:center;width:3.5rem;height:3.5rem;border-radius:50%;background:var(--green-cta);color:#fff}
+.how-steps .n svg{width:1.5rem;height:1.5rem}
+.how-steps b{font:800 1.35rem/1.1 var(--f-c);text-transform:uppercase;color:var(--blue);align-self:end}
+.how-steps b::before{content:counter(h,decimal-leading-zero) " ";color:var(--green);font-size:.9rem;vertical-align:.15em}
+.how-steps p{color:var(--muted);font-size:.9375rem;align-self:start}
+@media (min-width:48rem){.how-steps{grid-template-columns:repeat(3,minmax(0,1fr))}.how-steps li{grid-template-columns:1fr;row-gap:.6rem;padding:1.5rem}.how-steps .n{grid-row:auto;margin-bottom:.4rem}}
+@media (prefers-color-scheme:dark){.how{background:var(--bg)}.how .bg{opacity:.35}.how .bg::after{background:none}.how-steps li{background:var(--surface)}.how-steps b{color:#7cc0f2}}
+/* 11: opinie, jeden duży cytat */
+.stars{color:var(--green)}
+.stars .bg-s{color:color-mix(in srgb,var(--green) 25%,transparent)}
+@media (min-width:48rem){.quotes{grid-template-columns:repeat(2,minmax(0,1fr))}.quotes blockquote:nth-child(n){margin-top:0}.quotes .big{grid-column:1/-1}}
+.quotes .big{padding:1.75rem 1.75rem 1.5rem;border-top:0;border-left:4px solid var(--green)}
+.quotes .big p{font:600 clamp(1.4rem,1rem + 1.2vw,2rem)/1.25 var(--f);letter-spacing:-.01em;color:var(--ink)}
+/* 8: mapa po kliknięciu */
+.map{position:relative;min-height:22rem;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--sky)}
+.map-ph{position:absolute;inset:0;background:
+  linear-gradient(115deg,transparent 46%,color-mix(in srgb,#fff 85%,transparent) 46% 50%,transparent 50%),
+  linear-gradient(20deg,transparent 60%,color-mix(in srgb,#fff 85%,transparent) 60% 63%,transparent 63%),
+  repeating-linear-gradient(0deg,transparent 0 46px,color-mix(in srgb,var(--blue) 9%,transparent) 46px 47px),
+  repeating-linear-gradient(90deg,transparent 0 46px,color-mix(in srgb,var(--blue) 9%,transparent) 46px 47px)}
+.map-pin{position:absolute;left:58%;top:22%;display:grid;place-items:center;width:3.25rem;height:3.25rem;border-radius:50% 50% 50% 0;rotate:-45deg;background:var(--green-cta);color:#fff;box-shadow:0 12px 24px -10px rgba(0,0,0,.4)}
+.map-pin svg{width:1.4rem;height:1.4rem;rotate:45deg}
+.map-cta{position:absolute;left:1rem;right:1rem;bottom:1rem;display:grid;gap:.15rem;justify-items:start;background:var(--bg);border-radius:var(--r);padding:1.1rem 1.25rem;box-shadow:0 20px 40px -28px rgba(0,0,0,.45)}
+.map-cta b{font-size:1.0625rem}
+.map-cta span,.map-cta small{color:var(--muted);font-size:.875rem}
+.map-cta .btn{margin:.75rem 0 .4rem}
+@media (min-width:48rem){.map-cta{right:auto;max-width:20rem}}
+.map.on iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media (min-width:64rem){.map{min-height:26rem}}
+.contact .bg{mix-blend-mode:normal;opacity:.6;background-position:right center}
+@media (min-width:64rem){.hero .bg::after{background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 80%,transparent) 40%,transparent 58%)}}
+@media (prefers-color-scheme:dark){.score b{color:#7cc0f2}.map-ph{opacity:.35}}
+.method .m-top p,.method .card p{color:#fff}
+@media (min-width:64rem){.hero .bg::after{background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 85%,transparent) 44%,transparent 62%)}}
+@media (min-width:64rem) and (prefers-color-scheme:dark){.hero .bg::after{background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 45%,color-mix(in srgb,var(--bg) 70%,transparent) 60%,transparent 78%)}}
+@media (max-width:63.99rem){.contact .bg{opacity:.3}}
+@media (max-width:47.99rem){.tile.ask::after{background:linear-gradient(180deg,color-mix(in srgb,var(--green-cta) 88%,transparent),var(--green-cta) 60%)}}
+/* 12: stopka */
+footer.site{display:block;background:var(--blue-deep);color:#d6e5f2;padding:clamp(2.5rem,5vw,3.5rem) var(--pad) 6.5rem;font-size:.9375rem}
+@media (min-width:64rem){footer.site{padding-bottom:2rem}}
+.f-cols{display:grid;gap:2rem;max-width:76rem}
+@media (min-width:48rem){.f-cols{grid-template-columns:1.6fr 1fr 1fr 1fr}}
+footer.site h3{font:800 .875rem/1 var(--f-c);letter-spacing:.06em;text-transform:uppercase;color:#bfe8cd;margin-bottom:.75rem}
+footer.site p{line-height:1.7}
+footer.site .brand{margin-bottom:.9rem;width:fit-content}
+footer.site .brand svg{color:#fff}
+footer.site .brand-name b{color:#7fdca0}
+footer.site .brand-name span{color:#fff}
+footer.site .f-cols>div:first-child p{max-width:24rem;font-size:.875rem}
+.f-phone{font:600 1.25rem/1.4 var(--f);color:#fff;text-decoration:none}
+footer.site .link{color:#fff}
+.f-bottom{max-width:76rem;margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.15);font-size:.8125rem;color:#bcd0e2}
+footer.site :focus-visible{outline-color:#fff}
+/* jedyny ruch: wejście pierwszego ekranu */
+@keyframes fadein{from{opacity:0}}
+@keyframes rise{from{opacity:0;translate:0 .75rem}}
+@media (prefers-reduced-motion:no-preference){
+  .hero>*{animation:rise .7s var(--ease) both}
+  .hero>:nth-child(2){animation-delay:.08s}
+  .hero>:nth-child(3){animation-delay:.16s}
+  .hero>:nth-child(4){animation-delay:.24s}
+  .hero>:nth-child(5){animation-delay:.32s}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.8L3 21l1.9-5A8.4 8.4 0 1 1 21 11.5z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 19C5 10 11 5 20 4c0 9-5 15-14 15M5 19l8-8"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m20 20-4.5-4.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 8h16M4 16h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  <!-- symbole z metek (ISO 3758): W w kole = profesjonalne pranie wodne, P w kole = czyszczenie chemiczne -->
+  <symbol id="s-w" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="6"/><path fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" d="M27 33l9 36 14-28 14 28 9-36"/></symbol>
+  <symbol id="s-p" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="6"/><path fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" d="M40 72V30h13a12 12 0 0 1 0 24H40"/></symbol>
+  <symbol id="s-tub" viewBox="0 0 100 100"><path fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" d="M10 34l10 46h60l10-46"/><path fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" d="M10 34c7 0 7-6 13.3-6s6.4 6 13.4 6 6.6-6 13.3-6 6.6 6 13.3 6 6.7-6 13.4-6 6.6 6 13.3 6"/></symbol>
+</svg>
+
+<div class="shell">
+<aside class="side" id="side">
+  <div class="side-top">
+    <!-- TODO: podmienić znak i nazwę na plik logo firmy (img/logo.webp, z profilu Google „Od właściciela”) -->
+    <a class="brand" href="#top" aria-label="EcoPralnia, początek strony">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-w"/></svg>
+      <span class="brand-name"><b>eco</b><span>PRALNIA</span></span>
+    </a>
+    <a class="btn side-call" href="tel:+48603708002"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Zadzwoń</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="side-nav" aria-label="Otwórz menu"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+  <p class="side-tag">Pranie wodne zamiast chemii.<br>Wrocław, Psie Pole.</p>
+  <nav class="side-nav" id="side-nav" aria-label="Spis treści">
+    <a href="#metoda"><span>01</span>Metoda</a>
+    <a href="#uslugi"><span>02</span>Co przyjmujemy</a>
+    <a href="#suknie"><span>03</span>Suknie ślubne</a>
+    <a href="#opinie"><span>04</span>Opinie</a>
+    <a href="#dojazd"><span>05</span>Jak trafić</a>
+    <a href="#kontakt"><span>06</span>Kontakt</a>
+  </nav>
+  <div class="side-foot">
+    <a class="side-phone" href="tel:+48603708002">603 708 002</a>
+    <dl>
+      <dt>pn–pt</dt><dd>10:00–17:00</dd>
+      <dt>sobota</dt><dd>10:00–14:00</dd>
+      <dt>adres</dt><dd>ul. Tarasa Szewczenki 42</dd>
+    </dl>
+    <a class="btn line" href="https://www.google.com/maps/dir/?api=1&amp;destination=51.1376179,17.1334461" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Wyznacz trasę</a>
+  </div>
+</aside>
+
+<main id="main">
+<section class="hero" id="top" aria-labelledby="h1">
+  <div class="ph bg" style="--a:url(img/hero-splash.avif);--w:url(img/hero-splash.webp)" aria-hidden="true"></div>
+  <div class="hero-in">
+    <p class="label"><i aria-hidden="true"></i>Ekspert w pielęgnacji tkanin, Wrocław Psie Pole</p>
+    <h1 id="h1"><span class="hl">Pierzemy w wodzie</span> to, co zwykle trafia do chemii</h1>
+    <p class="lead">Garnitury, kurtki puchowe, suknie ślubne, pościel. Na maszynach Girbau, przy ul. Tarasa Szewczenki 42.</p>
+    <div class="actions">
+      <a class="btn" href="tel:+48603708002"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Zadzwoń: 603 708 002</a>
+      <a class="btn line" href="#uslugi">Co przyjmujemy</a>
+    </div>
+  </div>
+  <dl class="facts">
+    <div><dt>Metoda</dt><dd>Pranie wodne, bez chemii</dd></div>
+    <div><dt>Opinie Google</dt><dd>4,5 z 22 opinii</dd></div>
+    <div><dt>Super ekspres</dt><dd>Odbiór tego samego dnia</dd></div>
+  </dl>
+</section>
+
+<section class="blk method" id="metoda" aria-labelledby="h-metoda">
+  <div class="ph bg" style="--a:url(img/bg-water.avif);--w:url(img/bg-water.webp)" aria-hidden="true"></div>
+  <div class="in">
+    <p class="label"><b>01</b>Metoda</p>
+    <div class="m-top">
+      <div>
+        <h2 id="h-metoda">Woda zamiast chemii</h2>
+        <p>Innowacyjna metoda prania wodnego na maszynach Girbau: woda, temperatura i ruch bębna pod kontrolą.</p>
+      </div>
+      <p class="wtag"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-w"/></svg><span>Na metce szukaj kółka z literą W</span></p>
+    </div>
+    <div class="cards3">
+      <article class="card"><div class="ph" style="--a:url(img/m-colors.avif);--w:url(img/m-colors.webp)" aria-hidden="true"></div><span class="pill" aria-hidden="true"><svg><use href="#i-leaf"/></svg></span><h3>Ochrona włókien</h3><p>Kolory nie szarzeją, wełna zostaje miękka.</p></article>
+      <article class="card"><div class="ph" style="--a:url(img/drops-white.avif);--w:url(img/drops-white.webp)" aria-hidden="true"></div><span class="pill" aria-hidden="true"><svg><use href="#i-search"/></svg></span><h3>Dbałość o detale</h3><p>Pot i zapachy schodzą tam, gdzie chemia nie daje rady.</p></article>
+      <article class="card"><div class="ph" style="--a:url(img/fabric-cashmere.avif);--w:url(img/fabric-cashmere.webp)" aria-hidden="true"></div><span class="pill" aria-hidden="true"><svg><use href="#i-heart"/></svg></span><h3>Dbałość o klienta</h3><p>Cenę i metodę poznasz przez telefon, zanim przyniesiesz rzeczy.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="blk serv" id="uslugi" aria-labelledby="h-uslugi">
+  <div class="ph bg" style="--a:url(img/bg-linen.avif);--w:url(img/bg-linen.webp)" aria-hidden="true"></div>
+  <div class="in">
+    <p class="label"><b>02</b>Co przyjmujemy</p>
+    <h2 id="h-uslugi">Przynieś, a cenę podamy przez telefon</h2>
+    <p class="lede">Pranie wodne i chemiczne, prasowanie i magiel, czyszczenie skór i kożuchów.</p>
+    <div class="tiles">
+      <div class="tile"><div class="ph" style="--a:url(img/hero-wool.avif);--w:url(img/hero-wool.webp)"></div><span>Garnitury<small>marynarki, spodnie</small></span></div>
+      <div class="tile"><div class="ph" style="--a:url(img/tile-coat.avif);--w:url(img/tile-coat.webp)"></div><span>Płaszcze<small>wełna, kaszmir</small></span></div>
+      <div class="tile"><div class="ph" style="--a:url(img/tile-down.avif);--w:url(img/tile-down.webp)"></div><span>Kurtki puchowe</span></div>
+      <div class="tile"><div class="ph" style="--a:url(img/tile-shirt.avif);--w:url(img/tile-shirt.webp)"></div><span>Koszule i sukienki<small>także jedwab</small></span></div>
+      <div class="tile"><div class="ph" style="--a:url(img/tulle-pearls.avif);--w:url(img/tulle-pearls.webp)"></div><span>Suknie ślubne<small>i wieczorowe</small></span></div>
+      <div class="tile"><div class="ph" style="--a:url(img/fabric-linen.avif);--w:url(img/fabric-linen.webp)"></div><span>Pościel i kołdry<small>koce, obrusy, magiel</small></span></div>
+      <div class="tile"><div class="ph" style="--a:url(img/tile-curtains.avif);--w:url(img/tile-curtains.webp)"></div><span>Firany i zasłony</span></div>
+      <div class="tile"><div class="ph" style="--a:url(img/tile-leather.avif);--w:url(img/tile-leather.webp)"></div><span>Skóry i futra<small>kożuchy</small></span></div>
+      <!-- TODO: potwierdzić z firmą, czy nadal: dywany z odbiorem i dowozem, poprawki krawieckie -->
+      <div class="tile"><div class="ph" style="--a:url(img/tile-rug.avif);--w:url(img/tile-rug.webp)"></div><b class="badge">Odbiór i dowóz</b><span>Dywany<small>odbierzemy, wypierzemy, odwieziemy</small></span></div>
+      <a class="tile ask" href="tel:+48603708002"><div class="ph" style="--a:url(img/drum-water.avif);--w:url(img/drum-water.webp)" aria-hidden="true"></div><span><b>Nie ma tu Twojej rzeczy?</b><em><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Zadzwoń i zapytaj</em></span></a>
+    </div>
+    <!-- TODO: potwierdzić tryby i czasy (archiwum strony 2019–2020) -->
+    <p class="modes-head">Pranie w trybie:</p>
+    <div class="modes" role="group" aria-label="Tryby prania">
+      <div class="mode"><div class="ph" style="--a:url(img/mode-standard.avif);--w:url(img/mode-standard.webp)" aria-hidden="true"></div><div><b>36–48 h</b><span>standard</span></div></div>
+      <div class="mode"><div class="ph" style="--a:url(img/mode-24h.avif);--w:url(img/mode-24h.webp)" aria-hidden="true"></div><div><b>24 h</b><span>ekspres</span></div></div>
+      <div class="mode"><div class="ph" style="--a:url(img/mode-sameday.avif);--w:url(img/mode-sameday.webp)" aria-hidden="true"></div><div><b>Ten sam dzień</b><span>super ekspres</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk how" aria-labelledby="h-how">
+  <div class="ph bg" style="--a:url(img/bg-splash-blue.avif);--w:url(img/bg-splash-blue.webp)" aria-hidden="true"></div>
+  <div class="in">
+    <h2 id="h-how">Jak to działa</h2>
+    <ol class="how-steps">
+      <li><span class="n" aria-hidden="true"><svg><use href="#i-phone"/></svg></span><b>Zadzwoń</b><p>Podamy cenę i termin.</p></li>
+      <li><span class="n" aria-hidden="true"><svg><use href="#i-pin"/></svg></span><b>Przynieś</b><p>Ul. Tarasa Szewczenki 42, pn–pt 10–17, sob 10–14.</p></li>
+      <li><span class="n" aria-hidden="true"><svg><use href="#i-check"/></svg></span><b>Odbierz</b><p>Po 36–48 h, po 24 h albo tego samego dnia.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="blk dress" id="suknie" aria-labelledby="h-suknie">
+  <div class="ph bg" style="--a:url(img/bg-tulle.avif);--w:url(img/bg-tulle.webp)" aria-hidden="true"></div>
+  <div class="in d-grid">
+    <div class="d-text">
+      <p class="label"><b>03</b>Suknie ślubne</p>
+      <h2 id="h-suknie">Suknia wraca z każdą perełką</h2>
+      <p>Przyjmujemy suknie z kamieniami i tiulem. Przed praniem mówimy, jak ją wypierzemy.</p>
+      <ul class="ticks">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Cena i metoda przez telefon</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Porada, jak ją przechowywać</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Pomoc w znalezieniu krawcowej</li>
+      </ul>
+      <div class="actions"><a class="btn" href="tel:+48603708002"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Zapytaj o suknię</a></div>
+    </div>
+    <div class="collage">
+      <div class="ph c1" style="--a:url(img/dress-hanger.avif);--w:url(img/dress-hanger.webp)" aria-hidden="true"></div>
+      <div class="ph c2" style="--a:url(img/dress-lace.avif);--w:url(img/dress-lace.webp)" aria-hidden="true"></div>
+      <blockquote>
+        <p>„Oddałam w ręce profesjonalistki 2 suknie ślubne, które wróciły do mnie w idealnym stanie.”</p>
+        <footer>Martyna J., opinia w Google</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="blk rev" id="opinie" aria-labelledby="h-opinie">
+  <div class="ph bg" style="--a:url(img/bg-linen.avif);--w:url(img/bg-linen.webp)" aria-hidden="true"></div>
+  <div class="in">
+    <p class="label"><b>04</b>Opinie</p>
+    <div class="r-grid">
+      <div class="score">
+        <h2 id="h-opinie" class="sr">Opinie klientów</h2>
+        <b>4,5</b>
+        <div class="stars" aria-hidden="true"><span><svg><use href="#i-star"/></svg></span><span><svg><use href="#i-star"/></svg></span><span><svg><use href="#i-star"/></svg></span><span><svg><use href="#i-star"/></svg></span><span><svg class="bg-s"><use href="#i-star"/></svg><svg class="half"><use href="#i-star"/></svg></span></div>
+        <p>średnia z 22 opinii w Google</p>
+        <a class="link" href="https://www.google.com/maps/place/EcoPralnia/@51.1376179,17.1334461,17z/data=!4m6!3m5!1s0x470fe94c243f835d:0xdf33a318b2b43909!8m2!3d51.1376179!4d17.1334461!16s%2Fg%2F11gv0dcm_4" rel="noopener">Zobacz wszystkie opinie</a>
+      </div>
+      <div class="quotes">
+        <blockquote class="big"><p>„Przemiła obsługa, szybkie terminy i (co najważniejsze) świetne rezultaty.”</p><footer>Paweł K., Google</footer></blockquote>
+        <blockquote><p>„Uratowała mnie w ostatniej chwili.”</p><footer>Magda, o garniturze, Google</footer></blockquote>
+        <blockquote><p>„skonsultowałem się przez telefon, więc wiedziałem jakiej ceny się spodziewać”</p><footer>Piotr W., o pościeli, Google</footer></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk find" id="dojazd" aria-labelledby="h-dojazd">
+  <div class="in f-grid">
+    <div class="f-text">
+      <p class="label"><b>05</b>Jak trafić</p>
+      <h2 id="h-dojazd">To dom, nie pawilon</h2>
+      <p>Pralnia działa w domu jednorodzinnym na Psim Polu, łatwo przejść obok.</p>
+      <ol class="steps">
+        <li><span>Ul. Tarasa Szewczenki 42, 51-352 Wrocław</span></li>
+        <li><span>TODO: wejście od firmy (furtka, dzwonek, tabliczka)</span></li>
+        <li><span>Zadzwoń przed przyjazdem i umów godzinę</span></li>
+      </ol>
+      <div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=51.1376179,17.1334461" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Wyznacz trasę</a></div>
+    </div>
+    <!-- TODO: po otrzymaniu od firmy dodać 2 zdjęcia: dom od ulicy, furtka i dzwonek -->
+    <div class="map" id="map">
+      <div class="map-ph" aria-hidden="true"><span class="map-pin"><svg><use href="#i-pin"/></svg></span></div>
+      <div class="map-cta">
+        <b>ul. Tarasa Szewczenki 42</b>
+        <span>Wrocław, Psie Pole</span>
+        <button class="btn" type="button" id="map-load"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Pokaż mapę</button>
+        <small>Mapa Google ładuje się dopiero po kliknięciu.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk contact" id="kontakt" aria-labelledby="h-kontakt">
+  <div class="ph bg" style="--a:url(img/bg-water-deep.avif);--w:url(img/bg-water-deep.webp)" aria-hidden="true"></div>
+  <div class="in c-grid">
+    <div class="c-main">
+      <p class="label"><b>06</b>Kontakt</p>
+      <h2 id="h-kontakt">Zadzwoń, podamy cenę i termin</h2>
+      <a class="big-phone" href="tel:+48603708002">603 708 002</a>
+      <p class="muted">Nie odbieramy? Napisz na Messengerze.</p><!-- TODO: potwierdzić z firmą, kto odpisuje na Messengerze i jak szybko -->
+      <div class="actions">
+        <a class="btn" href="tel:+48603708002"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Zadzwoń</a>
+        <a class="btn line" href="https://m.me/EcoPralniaWroclaw" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Napisz na Messengerze</a>
+      </div>
+      <address class="addr">
+        ul. Tarasa Szewczenki 42, 51-352 Wrocław<br>
+        <!-- TODO: potwierdzić, czy skrzynka działa (domena ecopralnia.wroclaw.pl nie odpowiada) -->
+        <span class="mail"><a class="link" href="mailto:kontakt@ecopralnia.wroclaw.pl">kontakt@ecopralnia.wroclaw.pl</a><button class="copy-btn" type="button" data-copy="kontakt@ecopralnia.wroclaw.pl">Kopiuj</button></span>
+      </address>
+    </div>
+    <div class="c-hours">
+      <h3>Godziny otwarcia</h3>
+      <p class="open-now" id="open-now" hidden><span class="dot"></span><span class="txt"></span></p>
+      <table class="hours">
+        <tr data-days="1-5"><th scope="row">poniedziałek–piątek</th><td>10:00–17:00</td></tr>
+        <tr data-days="6"><th scope="row">sobota</th><td>10:00–14:00</td></tr>
+        <tr data-days="0"><th scope="row">niedziela</th><td>zamknięte</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="f-cols">
+    <div>
+      <a class="brand" href="#top" aria-label="EcoPralnia, początek strony"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-w"/></svg><span class="brand-name"><b>eco</b><span>PRALNIA</span></span></a>
+      <p>Pranie wodne zamiast chemii. Atestowane środki, odpady utylizowane zgodnie z przepisami. Rzeczy z symbolem P (chemia) też przyjmujemy.</p>
+    </div>
+    <div><h3>Kontakt</h3><p><a class="f-phone" href="tel:+48603708002">603 708 002</a><br>ul. Tarasa Szewczenki 42<br>51-352 Wrocław</p></div>
+    <div><h3>Godziny</h3><p>pn–pt 10:00–17:00<br>sobota 10:00–14:00<br>niedziela zamknięte</p></div>
+    <div><h3>Znajdź nas</h3><p><a class="link" href="https://www.facebook.com/EcoPralniaWroclaw" rel="noopener">Facebook</a><br><a class="link" href="https://www.google.com/maps/dir/?api=1&amp;destination=51.1376179,17.1334461" rel="noopener">Mapy Google</a></p></div>
+  </div>
+  <div class="f-bottom"><span>© EcoPralnia</span><!-- TODO: NIP i pełna nazwa działalności --><!-- TODO: podpis autora „Strona: Adrian Wojtasik” po potwierdzeniu z firmą --></div>
+</footer>
+</main>
+</div>
+
+
+
+<div class="bar" id="bar">
+  <a class="btn" href="tel:+48603708002"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Zadzwoń</a>
+  <a class="btn line" href="#dojazd"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Jak trafić</a>
+</div>
+
+<script defer>
+(function(){
+  var side=document.getElementById('side'), bar=document.getElementById('bar');
+  var nav=document.getElementById('side-nav'), btn=document.querySelector('.menu-btn');
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+
+  /* spis treści: zaznacza aktualny blok; pasek na telefonie po pierwszym ekranie */
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var cur=-1, lim=window.innerHeight*0.4;
+    secs.forEach(function(s,i){ if(s && s.getBoundingClientRect().top < lim) cur=i; });
+    links.forEach(function(a,i){ if(i===cur) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current'); a.classList.toggle('done', i<cur); });
+    var pr=0;
+    if(cur>=0){ var t0=secs[cur].getBoundingClientRect().top, nx=secs[cur+1];
+      var f=nx ? Math.min(1,Math.max(0,(lim-t0)/(nx.getBoundingClientRect().top-t0))) : 0;
+      pr=Math.min(1,(cur+f)/(links.length-1)); }
+    nav.style.setProperty('--p', pr.toFixed(4));
+    bar.classList.toggle('show', window.scrollY > window.innerHeight*0.6);
+  }
+  window.addEventListener('scroll', function(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }, {passive:true});
+  update();
+
+  /* menu na telefonie */
+  var wide=window.matchMedia('(min-width:64rem)');
+  function closeMenu(){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','Otwórz menu'); btn.querySelector('use').setAttribute('href','#i-menu'); }
+  btn.addEventListener('click', function(){
+    var open=!nav.classList.contains('open');
+    nav.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open?'Zamknij menu':'Otwórz menu');
+    btn.querySelector('use').setAttribute('href', open?'#i-close':'#i-menu');
+    if(open) links[0].focus();
+  });
+  nav.addEventListener('click', function(e){ if(e.target.closest('a') && !wide.matches) closeMenu(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && nav.classList.contains('open')){ closeMenu(); btn.focus(); } });
+  wide.addEventListener('change', closeMenu);
+
+  /* mapa Google dopiero po kliknięciu */
+  var ml=document.getElementById('map-load');
+  if(ml) ml.addEventListener('click', function(){
+    var f=document.createElement('iframe');
+    f.src='https://www.google.com/maps?q=51.1376179,17.1334461&z=16&output=embed';
+    f.title='Mapa: EcoPralnia, ul. Tarasa Szewczenki 42, Wrocław'; f.loading='lazy'; f.referrerPolicy='no-referrer-when-downgrade';
+    var m=document.getElementById('map'); m.innerHTML=''; m.appendChild(f); m.classList.add('on');
+  });
+
+  /* symbole z metki */
+  var sb=[].slice.call(document.querySelectorAll('.sym-btn'));
+  sb.forEach(function(b){ b.addEventListener('click', function(){
+    sb.forEach(function(x){ x.setAttribute('aria-pressed', String(x===b)); });
+    document.querySelectorAll('.sym-panel').forEach(function(p){ p.classList.toggle('on', p.id==='p-'+b.getAttribute('data-p')); });
+  }); });
+
+  /* kopiowanie adresu e-mail */
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var t=b.getAttribute('data-copy');
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function(){ b.textContent='Skopiowano'; setTimeout(function(){ b.textContent='Kopiuj'; },1500); }).catch(function(){ b.textContent='Zaznacz i skopiuj'; });
+    });
+  });
+
+  /* otwarte teraz (czas wrocławski) */
+  var on=document.getElementById('open-now');
+  if(on){ try{
+    var parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Warsaw',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+    var g=function(t){ return parts.filter(function(p){ return p.type===t; })[0].value; };
+    var dmap={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}, d=dmap[g('weekday')], m=parseInt(g('hour'),10)*60+parseInt(g('minute'),10);
+    var sched={0:null,1:[600,1020],2:[600,1020],3:[600,1020],4:[600,1020],5:[600,1020],6:[600,840]};
+    var names=['w niedzielę','w poniedziałek','we wtorek','w środę','w czwartek','w piątek','w sobotę'];
+    var fmt=function(x){ return Math.floor(x/60)+':'+('0'+x%60).slice(-2); };
+    var today=sched[d], txt, isOpen=false;
+    if(today && m>=today[0] && m<today[1]){ isOpen=true; txt='Otwarte teraz, do '+fmt(today[1]); }
+    else if(today && m<today[0]){ txt='Zamknięte, otwieramy dziś o '+fmt(today[0]); }
+    else { for(var k=1;k<=7;k++){ var dd=(d+k)%7; if(sched[dd]){ txt='Zamknięte, otwieramy '+(k===1?'jutro':names[dd])+' o '+fmt(sched[dd][0]); break; } } }
+    on.querySelector('.txt').textContent=txt; on.classList.toggle('closed',!isOpen); on.hidden=false;
+    document.querySelectorAll('.hours tr[data-days]').forEach(function(tr){ var r=tr.getAttribute('data-days').split('-').map(Number), hi=r.length>1?r[1]:r[0]; if(d>=r[0] && d<=hi) tr.classList.add('today'); });
+  }catch(err){} }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+media/
+*.jpg.bak
+.DS_Store
+Thumbs.db
