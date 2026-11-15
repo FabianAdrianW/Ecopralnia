@@ -460,20 +460,22 @@ footer.site .link{color:#fff}
 .f-bottom{max-width:76rem;margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.15);font-size:.8125rem;color:#bcd0e2}
 footer.site :focus-visible{outline-color:#fff}
 
-/* v9.1: telefon, napis na zdjęciu (hero jako pełne tło) */
+/* v9.2: telefon, hero jako kadr na pełnym niebieskim tle (mobile) */
 @media (max-width:63.99rem){
-  .hero{position:relative;min-height:clamp(34rem,78svh,42rem);justify-content:flex-end;color:#fff}
-  .hero .bg{position:absolute;inset:0;aspect-ratio:auto;background-position:80% 28%}
-  .hero .bg::after{background:linear-gradient(180deg,rgba(7,30,52,.62) 0%,rgba(7,30,52,.5) 18%,rgba(7,30,52,.3) 34%,rgba(7,30,52,.66) 46%,rgba(7,30,52,.88) 62%,rgba(7,30,52,.95) 100%)}
-  .hero-in{margin-top:auto;padding:0 var(--pad) 1.75rem}
+  .hero{position:relative;min-height:0;display:block;color:#fff;padding:0 0 0;background:linear-gradient(170deg,var(--blue-2) 0%,var(--blue-deep) 100%);overflow:hidden}
+  .hero::before{content:"";position:absolute;right:-30%;top:-8%;width:80%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.12);pointer-events:none}
+  .hero .bg{position:relative;inset:auto;aspect-ratio:auto;height:clamp(17rem,46svh,22rem);margin:1rem 1rem 0;border-radius:22px;overflow:hidden;background-position:82% 30%;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+  .hero .bg::after{background:linear-gradient(180deg,rgba(7,30,52,0) 60%,rgba(7,30,52,.35) 100%)}
+  .hero-in{position:relative;z-index:1;margin-top:0;padding:1.75rem var(--pad) 2rem}
   .hero .label{color:#8ff0b5}
   .hero .label i{background:#8ff0b5}
-  .hero h1{color:#fff;max-width:14ch;font-size:clamp(2.15rem,9.5vw,2.75rem)}
-  .hero h1 .hl{color:#9fd8f7}
-  .hero .lead{color:#dbe8f3;margin-top:1rem;font-size:1rem;max-width:26rem}
-  .hero .actions{margin-top:1.25rem}
-  .hero .btn.line{color:#fff;border-color:rgba(255,255,255,.7);background:transparent}
-  .hero .facts{position:relative;z-index:1}
+  .hero h1{color:#fff;max-width:14ch;font-size:clamp(2.1rem,9.2vw,2.6rem)}
+  .hero h1 .hl{color:#a6dcf8}
+  .hero .lead{color:#d3e4f1;margin-top:1rem;font-size:1rem;max-width:26rem}
+  .hero .actions{margin-top:1.4rem;gap:.6rem}
+  .hero .btn.line{color:#fff;border-color:rgba(255,255,255,.55);background:transparent}
+  .hero .facts{position:relative;z-index:1;background:rgba(255,255,255,.07);backdrop-filter:blur(6px);border-top:1px solid rgba(255,255,255,.14)}
+  .hero .facts>div{background:transparent}
 }
 /* jedyny ruch: wejście pierwszego ekranu */
 @keyframes fadein{from{opacity:0}}
