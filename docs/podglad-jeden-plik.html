@@ -463,8 +463,8 @@ footer.site :focus-visible{outline-color:#fff}
 /* v9.3: telefon, zdjęcie jako tło całego pierwszego ekranu, woda przechodzi w Metodę */
 @media (max-width:63.99rem){
   .hero{position:relative;min-height:0;display:block;background:#fefefc;color:var(--ink);overflow:hidden;isolation:isolate}
-  .hero .bg{position:absolute;inset:0;z-index:-1;aspect-ratio:auto;margin:0;border-radius:0;box-shadow:none;filter:none;background-color:#fefefc;background-size:auto var(--hs,500px);background-position:right var(--hx,-84px) bottom var(--hb,24px);background-repeat:no-repeat}
-  .hero .bg::after{background:linear-gradient(180deg,#fefefc 0%,rgba(254,254,252,.95) 28%,rgba(254,254,252,.7) 44%,rgba(254,254,252,.25) 55%,rgba(254,254,252,0) 64%)}
+  .hero .bg{position:absolute;inset:0;z-index:-1;aspect-ratio:auto;margin:0;border-radius:0;box-shadow:none;filter:none;background-color:#fefefc;background-size:auto var(--hs,460px);background-position:right var(--hx,-84px) bottom var(--hb,-6px);background-repeat:no-repeat}
+  .hero .bg::after{background:none}
   .hero-in{position:relative;z-index:1;margin:0;padding:1.75rem var(--pad) var(--hp,17rem)}
   .hero .label{color:#0f7d38}
   .hero .label i{background:#0f7d38}
@@ -475,14 +475,13 @@ footer.site :focus-visible{outline-color:#fff}
   .hero .lead{color:#3c5266;margin-top:.9rem;font-size:1rem;max-width:11.5rem;text-shadow:0 0 12px #fefefc,0 0 4px #fefefc}
   .hero .actions{position:absolute;left:var(--pad);bottom:7.25rem;margin:0;flex-direction:column;align-items:flex-start;gap:.55rem}
   .hero .btn.line{color:#0b6cb0;border-color:rgba(11,108,176,.45);background:rgba(255,255,255,.8);backdrop-filter:blur(6px)}
-  .hero .facts{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;margin:0 .75rem;padding:0 0 .5rem;background:none;border:0}
+  .hero .facts{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;margin:0 .75rem;padding:0 0 1rem;background:none;border:0}
   .hero .facts>div{background:rgba(255,255,255,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(11,108,176,.14);border-radius:14px;padding:.7rem .7rem .75rem;color:#0d2236;box-shadow:0 12px 26px -18px rgba(8,73,124,.55)}
   .hero .facts>div:first-child{padding-left:.7rem}
   .hero .facts dt{color:#0f7d38;font-size:.625rem;letter-spacing:.06em}
   .hero .facts dd{font-size:.8125rem;line-height:1.3;margin-top:.2rem}
   .method{position:relative}
-  .method::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2.25rem;z-index:2;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0h400v14c-40 14-80 22-130 14S170 6 120 14 40 34 0 24z' fill='%23fefefc'/%3E%3C/svg%3E") center top/100% 100% no-repeat;pointer-events:none}
-  .method>.in{padding-top:calc(clamp(3.5rem,8vw,6rem) + 1rem)}
+  .method::before{content:none}
 }
 @media (max-width:63.99rem) and (min-width:30rem){.hero{--hs:620px;--hp:19rem;--hx:0px}}
 /* jedyny ruch: wejście pierwszego ekranu */
