@@ -465,8 +465,8 @@ footer.site :focus-visible{outline-color:#fff}
 /* v9.3: telefon, zdjęcie jako tło całego pierwszego ekranu, woda przechodzi w Metodę */
 @media (max-width:63.99rem){
   .hero{position:relative;min-height:0;display:block;background:#fefefc;color:var(--ink);overflow:hidden;isolation:isolate}
-  .hero .bg{position:absolute;inset:0;z-index:-1;aspect-ratio:auto;margin:0;border-radius:0;box-shadow:none;filter:none;background-color:#fefefc;background-size:auto var(--hs,460px);background-position:right var(--hx,-84px) bottom var(--hb,-6px);background-repeat:no-repeat}
-  .hero .bg::after{background:none}
+  .hero .bg{position:absolute;inset:0;z-index:-1;aspect-ratio:auto;margin:0;border-radius:0;box-shadow:none;filter:none;background-color:#fefefc;background-size:auto var(--hs,500px);background-position:right var(--hx,-118px) bottom var(--hb,24px);background-repeat:no-repeat}
+  .hero .bg::after{background:linear-gradient(180deg,#fefefc 0%,rgba(254,254,252,.8) 24%,rgba(254,254,252,.4) 42%,rgba(254,254,252,0) 56%)}
   .hero-in{position:relative;z-index:1;margin:0;padding:1.75rem var(--pad) var(--hp,17rem)}
   .hero .label{color:#0f7d38}
   .hero .label i{background:#0f7d38}
@@ -485,6 +485,7 @@ footer.site :focus-visible{outline-color:#fff}
   .method{position:relative}
   .method::before{content:none}
 }
+@media (max-width:23.5rem){.hero{--hx:-142px}}
 @media (max-width:63.99rem) and (min-width:30rem){.hero{--hs:620px;--hp:19rem;--hx:0px}}
 /* jedyny ruch: wejście pierwszego ekranu */
 @keyframes fadein{from{opacity:0}}
