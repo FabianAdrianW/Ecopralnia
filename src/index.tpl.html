@@ -478,6 +478,37 @@ footer.site :focus-visible{outline-color:#fff}
 }
 @media (max-width:23.5rem){.hero{--hx:-142px}}
 @media (max-width:63.99rem) and (min-width:30rem){.hero{--hs:620px;--hp:19rem;--hx:0px}}
+/* v9.4: menu na telefonie, pełny ekran w wodzie marki */
+.nav-foot{display:none}
+@media (max-width:63.99rem){
+  .side.menu-open{position:fixed;left:0;right:0;top:0}
+  .side-nav .nav-foot .nav-phone{border:0;min-height:0;padding:0}
+  .side-nav .nav-foot .btn{align-items:center;min-height:3rem;border:1px solid rgba(255,255,255,.5);padding:0 1.25rem}
+  .menu-lock .bar{transform:translateY(110%)}
+  .side.menu-open{background:var(--blue-deep);backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:rgba(255,255,255,.12)}
+  .side.menu-open .brand svg{color:#fff}
+  .side.menu-open .brand-name b{color:#7fdca0}
+  .side.menu-open .brand-name span{color:#fff}
+  .side.menu-open .menu-btn{color:#fff;border-color:rgba(255,255,255,.35)}
+  .side-nav.open{position:fixed;inset:4rem 0 0 0;z-index:30;display:flex;flex-direction:column;padding:1.25rem var(--pad) calc(1.5rem + env(safe-area-inset-bottom));border:0;overflow:auto;overscroll-behavior:contain;
+    background:linear-gradient(180deg,rgba(8,73,124,.55),rgba(6,40,70,.92) 70%),var(--deep,none) right bottom/cover no-repeat,linear-gradient(160deg,var(--blue-2),var(--blue-deep));color:#fff}
+  .side-nav.open a[href^="#"]{display:flex;align-items:center;gap:1rem;min-height:3.6rem;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.12);font:800 1.75rem/1.05 var(--f-c);text-transform:uppercase;letter-spacing:.01em;color:#fff;text-decoration:none}
+  .side-nav.open a span{display:grid;place-items:center;flex:none;width:2rem;height:2rem;border-radius:50%;border:1.5px solid rgba(127,220,160,.55);font:700 .75rem/1 var(--f);letter-spacing:0;color:#9ff0bd}
+  .side-nav.open a[aria-current="true"]{color:#a6dcf8}
+  .side-nav.open a[aria-current="true"] span{background:var(--green-cta);border-color:var(--green-cta);color:#fff}
+  .side-nav.open a[href^="#"]::after{content:"";margin-left:auto;width:.6rem;height:.6rem;border-top:2px solid currentColor;border-right:2px solid currentColor;rotate:45deg;opacity:.45}
+  .side-nav.open .nav-foot{display:grid;gap:.75rem;margin-top:auto;padding-top:1.75rem}
+  .nav-phone{display:inline-flex;align-items:center;gap:.6rem;font:600 1.5rem/1.2 var(--f);color:#fff;text-decoration:none}
+  .nav-phone .ico{color:#7fdca0}
+  .nav-foot p{font-size:.9375rem;line-height:1.55;color:#cfe0ee}
+  .nav-foot .btn.line{color:#fff;border-color:rgba(255,255,255,.5);background:transparent;justify-content:center}
+}
+@media (max-width:63.99rem) and (prefers-reduced-motion:no-preference){
+  .side-nav.open a[href^="#"],.side-nav.open .nav-foot{animation:rise .45s var(--ease) both}
+  .side-nav.open a:nth-child(2){animation-delay:.04s}.side-nav.open a:nth-child(3){animation-delay:.08s}
+  .side-nav.open a:nth-child(4){animation-delay:.12s}.side-nav.open a:nth-child(5){animation-delay:.16s}
+  .side-nav.open a:nth-child(6){animation-delay:.2s}.side-nav.open .nav-foot{animation-delay:.26s}
+}
 /* jedyny ruch: wejście pierwszego ekranu */
 @keyframes fadein{from{opacity:0}}
 @keyframes rise{from{opacity:0;translate:0 .75rem}}
@@ -526,13 +557,18 @@ footer.site :focus-visible{outline-color:#fff}
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="side-nav" aria-label="Otwórz menu"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
   </div>
   <p class="side-tag">Pranie wodne zamiast chemii.<br>Wrocław, Psie Pole.</p>
-  <nav class="side-nav" id="side-nav" aria-label="Spis treści">
+  <nav class="side-nav" id="side-nav" aria-label="Spis treści" style="--deep:image-set(url(img/bg-water-deep.avif) type(&quot;image/avif&quot;),url(img/bg-water-deep.webp) type(&quot;image/webp&quot;))">
     <a href="#metoda"><span>01</span>Metoda</a>
     <a href="#uslugi"><span>02</span>Co przyjmujemy</a>
     <a href="#suknie"><span>03</span>Suknie ślubne</a>
     <a href="#opinie"><span>04</span>Opinie</a>
     <a href="#dojazd"><span>05</span>Jak trafić</a>
     <a href="#kontakt"><span>06</span>Kontakt</a>
+    <div class="nav-foot">
+      <a class="nav-phone" href="tel:+48603708002"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>603 708 002</a>
+      <p>pn–pt 10–17, sob 10–14<br>ul. Tarasa Szewczenki 42, Wrocław</p>
+      <a class="btn line" href="https://www.google.com/maps/dir/?api=1&amp;destination=51.1376179,17.1334461" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Wyznacz trasę</a>
+    </div>
   </nav>
   <div class="side-foot">
     <a class="side-phone" href="tel:+48603708002">603 708 002</a>
@@ -752,7 +788,7 @@ footer.site :focus-visible{outline-color:#fff}
 (function(){
   var side=document.getElementById('side'), bar=document.getElementById('bar');
   var nav=document.getElementById('side-nav'), btn=document.querySelector('.menu-btn');
-  var links=[].slice.call(nav.querySelectorAll('a'));
+  var links=[].slice.call(nav.querySelectorAll('a[href^="#"]'));
   var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
 
   /* spis treści: zaznacza aktualny blok; pasek na telefonie po pierwszym ekranie */
@@ -774,10 +810,10 @@ footer.site :focus-visible{outline-color:#fff}
 
   /* menu na telefonie */
   var wide=window.matchMedia('(min-width:64rem)');
-  function closeMenu(){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','Otwórz menu'); btn.querySelector('use').setAttribute('href','#i-menu'); }
+  function closeMenu(){ nav.classList.remove('open'); side.classList.remove('menu-open'); document.documentElement.classList.remove('menu-lock'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','Otwórz menu'); btn.querySelector('use').setAttribute('href','#i-menu'); }
   btn.addEventListener('click', function(){
     var open=!nav.classList.contains('open');
-    nav.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open));
+    nav.classList.toggle('open', open); side.classList.toggle('menu-open', open); document.documentElement.classList.toggle('menu-lock', open); btn.setAttribute('aria-expanded', String(open));
     btn.setAttribute('aria-label', open?'Zamknij menu':'Otwórz menu');
     btn.querySelector('use').setAttribute('href', open?'#i-close':'#i-menu');
     if(open) links[0].focus();
